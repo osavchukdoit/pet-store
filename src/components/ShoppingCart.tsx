@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { Offcanvas, Stack } from "react-bootstrap";
 import { CartItem } from "./CartItem";
-import storeItems from "../data/items.json";
 import { formatCurrency } from "../utils/formatCurrency";
 import { useAppDispatch, useAppSelector } from "../hooks/reduxHooks";
 import { closeCart, setCartItems } from "../store/slices/shoppingCartSlice";
 import { useAuth } from "../hooks/useAuth";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { useUserCart } from "../api/useUserCart";
+import { useFetchDbStoreItemsQuery } from "../store/storeItemsApi";
 
 export const ShoppingCart = () => {
   const dispatch = useAppDispatch();
-  const { isOpen, cartItems } = useAppSelector((state) => state.shoppingCart);
+  const { data: storeItems } = useFetchDbStoreItemsQuery("");
+  const {
+    shoppingCart: { isOpen, cartItems },
+  } = useAppSelector((state) => state);
   const { isAuth } = useAuth();
   const [localStorageCart, setLocalStorageCart] = useLocalStorage(
     "shopping-cart",
@@ -21,7 +24,7 @@ export const ShoppingCart = () => {
   const [isUserLoaded, setIsUserLoaded] = useState(false);
 
   const totalPrice = cartItems.reduce((total, currItem) => {
-    const item = storeItems.find((storeItem) => storeItem.id === currItem.id);
+    const item = storeItems?.find((storeItem) => storeItem.id === currItem.id);
     return total + (item?.price || 0) * currItem.quantity;
   }, 0);
   const handleCloseCart = () => {

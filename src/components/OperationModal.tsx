@@ -5,7 +5,7 @@ import {
   OperationType,
   setOperation,
 } from "../store/slices/operationsSlice";
-import { Alert, DropdownButton, Form } from "react-bootstrap";
+import { DropdownButton, Form } from "react-bootstrap";
 import DropdownItem from "react-bootstrap/DropdownItem";
 import { capitalizeString } from "../utils/formatText";
 import { useAppDispatch, useAppSelector } from "../hooks/reduxHooks";
@@ -88,6 +88,7 @@ export const OperationModal: React.FC<OperationModalProps> = ({
               min={"0"}
               value={amount}
               onChange={(event) => setAmount(Number(event.target.value))}
+              step={0.01}
             />
           </Form.Group>
         </Form>

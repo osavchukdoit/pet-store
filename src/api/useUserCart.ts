@@ -1,4 +1,5 @@
-import { doc, getDoc } from "firebase/firestore";
+import React from "react";
+import { doc } from "firebase/firestore";
 import { db } from "../firebase";
 import { useAppDispatch, useAppSelector } from "../hooks/reduxHooks";
 import { CartItem, setCartItems } from "../store/slices/shoppingCartSlice";

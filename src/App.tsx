@@ -1,3 +1,4 @@
+import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { Container } from "react-bootstrap";
 import { Store } from "./pages/Store";
@@ -5,24 +6,17 @@ import { About } from "./pages/About";
 import { AppNavbar } from "./components/AppNavbar";
 import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
-import React, { useEffect } from "react";
-import { useAppDispatch } from "./hooks/reduxHooks";
-import { fetchStoreItems } from "./store/slices/storeItemsSlice";
 import { ShoppingCart } from "./components/ShoppingCart";
-import {Tracker} from "./pages/Tracker";
+import { Tracker } from "./pages/Tracker";
+import { Home } from "./pages/Home";
 
 const App = () => {
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    dispatch(fetchStoreItems());
-  }, []);
-
   return (
     <>
       <AppNavbar />
       <Container className={"mb-4"}>
         <Routes>
+          <Route path={"/"} element={<Home />} />
           <Route path={"/login"} element={<Login />} />
           <Route path={"/register"} element={<Register />} />
           <Route path={"/tracker"} element={<Tracker />} />

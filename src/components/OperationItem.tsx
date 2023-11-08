@@ -12,7 +12,6 @@ export const OperationItem: React.FC<OperationItemProps> = ({
   id,
   title,
   amount,
-  category,
   date,
 }) => {
   const dispatch = useAppDispatch();
@@ -20,7 +19,7 @@ export const OperationItem: React.FC<OperationItemProps> = ({
   const [showRemoveModal, setShowRemoveModal] = useState(false);
 
   return (
-    <>
+    <React.Fragment>
       <Card
         style={{ flexDirection: "row" }}
         className={"d-flex align-items-center mb-3"}
@@ -29,7 +28,6 @@ export const OperationItem: React.FC<OperationItemProps> = ({
           src={"/cart.svg"}
           width={"70px"}
           height={"70px"}
-          // style={{ width: "50px", height: "100%" }}
           className={"p-3"}
           variant={"left"}
         />
@@ -77,6 +75,6 @@ export const OperationItem: React.FC<OperationItemProps> = ({
         processTitle={"Remove"}
         onAccept={() => dispatch(removeOperation({ id }))}
       />
-    </>
+    </React.Fragment>
   );
 };

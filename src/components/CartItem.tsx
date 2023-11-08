@@ -1,8 +1,9 @@
 import React from "react";
 import { Button, Stack } from "react-bootstrap";
 import { formatCurrency } from "../utils/formatCurrency";
-import { useAppDispatch, useAppSelector } from "../hooks/reduxHooks";
+import { useAppDispatch } from "../hooks/reduxHooks";
 import { removeFromCart } from "../store/slices/shoppingCartSlice";
+import { useFetchDbStoreItemsQuery } from "../store/storeItemsApi";
 
 type CartItemProps = {
   id: number;
@@ -11,9 +12,9 @@ type CartItemProps = {
 
 export const CartItem = ({ id, quantity }: CartItemProps) => {
   const dispatch = useAppDispatch();
-  const { items } = useAppSelector((state) => state.storeItems);
+  const { data: items } = useFetchDbStoreItemsQuery("");
 
-  const item = items.find((item) => item.id === id);
+  const item = items?.find((item) => item.id === id);
 
   if (!item) return null;
 

@@ -1,22 +1,23 @@
 import React from "react";
-import {Col, Row, Spinner} from "react-bootstrap";
+import { Col, Row, Spinner } from "react-bootstrap";
 import { StoreItem } from "../components/StoreItem";
-import { useAppSelector } from "../hooks/reduxHooks";
+import { useFetchDbStoreItemsQuery } from "../store/storeItemsApi";
 
 export const Store = () => {
-  const { items, loadingTitle } = useAppSelector((state) => state.storeItems);
+  const { data: items, error, isLoading } = useFetchDbStoreItemsQuery("");
 
   return (
     <div>
       <h1>Store</h1>
-      {loadingTitle ? (
+      {error ? <div>Something went wrong</div> : null}
+      {isLoading ? (
         <div className={"d-flex align-items-center justify-content-center"}>
           <Spinner animation="border" variant="primary" className={"me-2"} />{" "}
-          {loadingTitle}
+          Loading products...
         </div>
       ) : (
         <Row md={2} xs={1} lg={3} className={"g-3"}>
-          {items.map((item) => (
+          {items?.map((item) => (
             <Col key={item.id}>
               <StoreItem {...item} />
             </Col>

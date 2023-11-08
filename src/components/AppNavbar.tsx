@@ -23,7 +23,7 @@ export const AppNavbar = () => {
 
   return (
     <>
-      <Navbar className={"bg-white shadow-sm mb-3 sticky-top"}>
+      <Navbar className={"bg-white shadow-sm mb-3 sticky-top"} data-testid={"nav-bar"}>
         <Container>
           <Nav className={"me-auto"}>
             <Nav.Link to={"/store"} as={NavLink}>

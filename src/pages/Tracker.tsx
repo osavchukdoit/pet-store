@@ -19,45 +19,6 @@ export const Tracker = () => {
   );
 
   useEffect(() => {
-    // dispatch(
-    //   setOperations([
-    //     {
-    //       id: 0,
-    //       title: "salary",
-    //       amount: 8000,
-    //       type: OperationType.income,
-    //       date: Date.now(),
-    //     },
-    //     {
-    //       id: 1,
-    //       title: "deposit",
-    //       amount: 45,
-    //       type: OperationType.income,
-    //       date: Date.now(),
-    //     },
-    //     {
-    //       id: 5,
-    //       title: "grocery",
-    //       amount: 25,
-    //       type: OperationType.expenses,
-    //       date: Date.now(),
-    //     },
-    //     {
-    //       id: 6,
-    //       title: "charity",
-    //       amount: 2000,
-    //       type: OperationType.expenses,
-    //       date: Date.now(),
-    //     },
-    //     {
-    //       id: 56,
-    //       title: "clothes",
-    //       amount: 245,
-    //       type: OperationType.expenses,
-    //       date: Date.now(),
-    //     },
-    //   ])
-    // );
     dispatch(setOperations(localStorageOperations));
   }, []);
 
@@ -70,7 +31,7 @@ export const Tracker = () => {
     const total = typeOperations.reduce((sum, item) => sum + item.amount, 0);
 
     return typeOperations.length ? (
-      <Tab eventKey={type} title={capitalizeString(type)}>
+      <Tab eventKey={type} title={capitalizeString(type)} key={type}>
         {typeOperations.map((item) => (
           <OperationItem key={item.id} {...item} />
         ))}
@@ -89,14 +50,16 @@ export const Tracker = () => {
   return (
     <>
       <h1>Tracker</h1>
-      <Tabs
-        id={"tracker-tabs"}
-        activeKey={tabKey}
-        onSelect={(key) => setTabKey(key || "")}
-        fill
-      >
-        {Object.keys(OperationType).map((key) => tabBody(key))}
-      </Tabs>
+      {operations.length ? (
+        <Tabs
+          id={"tracker-tabs"}
+          activeKey={tabKey}
+          onSelect={(key) => setTabKey(key || "")}
+          fill
+        >
+          {Object.keys(OperationType).map((key) => tabBody(key))}
+        </Tabs>
+      ) : null}
       <Button
         onClick={() => {
           setShowModal(true);
