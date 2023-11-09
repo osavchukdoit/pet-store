@@ -37,7 +37,6 @@ const shoppingCartSlice = createSlice({
         state.cartItems = result;
       }
     },
-
     decreaseCartQuantity(state, action) {
       if (
         state.cartItems.find((item) => item.id === action.payload.id)
@@ -57,17 +56,14 @@ const shoppingCartSlice = createSlice({
         state.cartItems = result;
       }
     },
-
     removeFromCart(state, action) {
       state.cartItems = state.cartItems.filter(
         (item) => item.id !== action.payload.id
       );
     },
-
     openCart(state) {
       state.isOpen = true;
     },
-
     closeCart(state) {
       state.isOpen = false;
     },

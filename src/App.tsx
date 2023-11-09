@@ -9,6 +9,8 @@ import { Register } from "./pages/Register";
 import { ShoppingCart } from "./components/ShoppingCart";
 import { Tracker } from "./pages/Tracker";
 import { Home } from "./pages/Home";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css";
 
 const App = () => {
   return (
@@ -25,6 +27,7 @@ const App = () => {
         </Routes>
       </Container>
       <ShoppingCart />
+      <ToastContainer autoClose={2000} />
     </>
   );
 };

@@ -4,7 +4,7 @@ import shoppingCartReducer from "./slices/shoppingCartSlice";
 import operationsReducer from "./slices/operationsSlice";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { storeItemsApi } from "./storeItemsApi";
-import { logger } from "./middleware";
+import { logger, notifier } from "./middleware";
 
 export const store = configureStore({
   reducer: {
@@ -14,7 +14,7 @@ export const store = configureStore({
     [storeItemsApi.reducerPath]: storeItemsApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(storeItemsApi.middleware, logger),
+    getDefaultMiddleware().concat(storeItemsApi.middleware, notifier, logger),
 });
 
 export type AppDispatch = typeof store.dispatch;
