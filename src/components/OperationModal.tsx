@@ -62,7 +62,7 @@ export const OperationModal: React.FC<OperationModalProps> = ({
       setShow={setShow}
       title={title}
       body={
-        <Form>
+        <Form data-testid={"operation-form"}>
           <Form.Group className={"mb-2"}>
             <Form.Label>Operation name</Form.Label>
             <Form.Control

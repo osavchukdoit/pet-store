@@ -5,9 +5,8 @@ export type CartItem = {
   quantity: number;
 };
 
-const initialState = {
+export const initialState = {
   cartItems: <CartItem[]>[],
-  cartQuantity: 0,
   isOpen: false,
 };
 

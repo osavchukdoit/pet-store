@@ -23,7 +23,10 @@ export const AppNavbar = () => {
 
   return (
     <>
-      <Navbar className={"bg-white shadow-sm mb-3 sticky-top"} data-testid={"nav-bar"}>
+      <Navbar
+        className={"bg-white shadow-sm mb-3 sticky-top"}
+        data-testid={"nav-bar"}
+      >
         <Container>
           <Nav className={"me-auto"}>
             <Nav.Link to={"/store"} as={NavLink}>
@@ -40,6 +43,7 @@ export const AppNavbar = () => {
             onClick={isAuth ? () => setShowModal(true) : handleLogIn}
             className={"ms-auto me-3"}
             variant={"outline-primary"}
+            data-testid={"btn-log-in-out"}
           >
             {isAuth ? "Log Out" : "Log In"}
           </Button>

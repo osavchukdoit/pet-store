@@ -48,7 +48,7 @@ export const Tracker = () => {
   };
 
   return (
-    <>
+    <React.Fragment data-testid={"tracker-screen"}>
       <h1>Tracker</h1>
       {operations.length ? (
         <Tabs
@@ -72,6 +72,6 @@ export const Tracker = () => {
         show={showModal}
         setShow={setShowModal}
       />
-    </>
+    </React.Fragment>
   );
 };

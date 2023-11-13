@@ -56,7 +56,12 @@ export const ShoppingCart = () => {
   }, [isAuth, cartItems]);
 
   return (
-    <Offcanvas show={isOpen} onHide={handleCloseCart} placement={"end"}>
+    <Offcanvas
+      show={isOpen}
+      onHide={handleCloseCart}
+      placement={"end"}
+      data-testid={"shopping-cart-modal"}
+    >
       <Offcanvas.Header closeButton>
         <Offcanvas.Title>Cart</Offcanvas.Title>
       </Offcanvas.Header>

@@ -7,7 +7,7 @@ export const Store = () => {
   const { data: items, error, isLoading } = useFetchDbStoreItemsQuery("");
 
   return (
-    <div>
+    <div data-testid={"store-screen"}>
       <h1>Store</h1>
       {error ? <div>Something went wrong</div> : null}
       {isLoading ? (

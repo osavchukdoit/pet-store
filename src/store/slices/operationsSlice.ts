@@ -14,7 +14,7 @@ export type Operation = {
   date: number;
 };
 
-const initialState = {
+export const initialState = {
   items: <Operation[]>[],
 };
 

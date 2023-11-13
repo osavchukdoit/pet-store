@@ -32,7 +32,12 @@ export const AppModal: React.FC<AppModalProps> = ({
   };
 
   return (
-    <Modal show={show} onHide={handleClose} backdrop={backdrop}>
+    <Modal
+      show={show}
+      onHide={handleClose}
+      backdrop={backdrop}
+      data-testid={"modal-window"}
+    >
       <Modal.Header closeButton>
         <Modal.Title>{title}</Modal.Title>
       </Modal.Header>

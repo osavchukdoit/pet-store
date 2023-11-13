@@ -21,7 +21,7 @@ export const AuthForm: React.FC<AuthFormProps> = ({
   };
 
   return (
-    <Form className={"mb-3 col-xl-6 col-xs-12"}>
+    <Form className={"mb-3 col-xl-6 col-xs-12"} data-testid={"auth-form"}>
       <Form.Group className={"mb-3"} controlId={"from-email"}>
         <Form.Label>Email address</Form.Label>
         <Form.Control

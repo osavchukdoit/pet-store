@@ -1,4 +1,4 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, PreloadedState } from "@reduxjs/toolkit";
 import userReducer from "./slices/userSlice";
 import shoppingCartReducer from "./slices/shoppingCartSlice";
 import operationsReducer from "./slices/operationsSlice";
@@ -19,6 +19,13 @@ export const store = configureStore({
 
 export type AppDispatch = typeof store.dispatch;
 export type AppState = ReturnType<typeof store.getState>;
+
+export const setupStore = (preloadedState?: PreloadedState<AppState>) => {
+  return configureStore({
+    reducer: store.getState,
+    preloadedState,
+  });
+};
 
 // optional, but required for refetchOnFocus/refetchOnReconnect behaviors
 // see `setupListeners` docs - takes an optional callback as the 2nd arg for customization

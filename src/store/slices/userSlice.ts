@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
+export const initialState = {
   email: <string | null>null,
   token: <string | null>null,
   id: <string | null>null,

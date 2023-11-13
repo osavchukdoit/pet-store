@@ -18,6 +18,7 @@ export const ShoppingCartButton = () => {
       variant={"outline-primary"}
       style={{ width: "3rem", height: "3rem" }}
       className={"rounded-circle position-relative"}
+      data-testid={"shopping-cart-btn"}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
