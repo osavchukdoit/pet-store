@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, test } from "vitest";
 import { fireEvent, render, screen } from "@testing-library/react";
-import { BrowserRouter } from "react-router-dom";
+import { MemoryRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { setupStore, store } from "../store";
 import App from "../App";
@@ -9,11 +9,11 @@ import { setUser } from "../store/slices/userSlice";
 describe("Login Component", () => {
   beforeEach(() => {
     render(
-      <BrowserRouter>
+      <MemoryRouter>
         <Provider store={store}>
           <App />
         </Provider>
-      </BrowserRouter>
+      </MemoryRouter>
     );
   });
   test("show Login button", () => {

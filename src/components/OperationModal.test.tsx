@@ -1,6 +1,6 @@
 import { describe, test, beforeEach, expect } from "vitest";
 import { fireEvent, render, screen } from "@testing-library/react";
-import { BrowserRouter } from "react-router-dom";
+import { MemoryRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "../store";
 import App from "../App";
@@ -8,11 +8,11 @@ import App from "../App";
 describe("Tracker Modal window", () => {
   beforeEach(() => {
     render(
-      <BrowserRouter>
+      <MemoryRouter>
         <Provider store={store}>
           <App />
         </Provider>
-      </BrowserRouter>
+      </MemoryRouter>
     );
     const btnLinkTracker = screen.getByRole("link", { name: "Tracker" });
     fireEvent.click(btnLinkTracker);
