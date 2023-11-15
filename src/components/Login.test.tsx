@@ -6,7 +6,7 @@ import { setupStore, store } from "../store";
 import App from "../App";
 import { setUser } from "../store/slices/userSlice";
 
-describe("Navigation Bar", () => {
+describe("Login Component", () => {
   beforeEach(() => {
     render(
       <BrowserRouter>
@@ -19,6 +19,7 @@ describe("Navigation Bar", () => {
   test("show Login button", () => {
     const btnLogin = screen.getByTestId("btn-log-in-out");
     expect(btnLogin).toBeDefined();
+    expect(btnLogin).toMatchSnapshot();
   });
   test("show Log Out", () => {
     const store = setupStore();

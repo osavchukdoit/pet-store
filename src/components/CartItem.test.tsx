@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 import { store } from "../store";
 import App from "../App";
 
-describe("Auth Form", () => {
+describe("Cart Item", () => {
   beforeEach(() => {
     render(
       <BrowserRouter>
@@ -15,14 +15,14 @@ describe("Auth Form", () => {
       </BrowserRouter>
     );
   });
-  test("hide Auth form initially", () => {
-    const authForm = screen.queryByTestId("auth-form");
-    expect(authForm).toBeNull();
+  test("hide cart item initially", () => {
+    const cartItem = screen.queryByTestId("cart-item");
+    expect(cartItem).toBeNull();
   });
-  test("show Auth form after click 'Log In'", () => {
-    const btnLogin = screen.getByTestId("btn-log-in-out");
-    fireEvent.click(btnLogin);
-    const authForm = screen.queryByTestId("auth-form");
-    expect(authForm).toBeDefined();
+  test("cart items after click cart button", () => {
+    const shoppingCartButton = screen.getByTestId("shopping-cart-btn");
+    fireEvent.click(shoppingCartButton as HTMLElement);
+    const cartItem = screen.queryByTestId("cart-item");
+    expect(cartItem).toBeNull();
   });
 });

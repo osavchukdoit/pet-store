@@ -23,6 +23,7 @@ export const CartItem = ({ id, quantity }: CartItemProps) => {
       direction={"horizontal"}
       gap={2}
       className={"d-flex align-items-center"}
+      data-testid={"cart-item"}
     >
       <img
         src={item.imgUrl}

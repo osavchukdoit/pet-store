@@ -24,8 +24,5 @@ describe("Shopping Cart", () => {
     fireEvent.click(shoppingCartButton as HTMLElement);
     const closeModalBtn = screen.getByLabelText("Close");
     expect(closeModalBtn).toBeDefined();
-    // fireEvent.click(closeModalBtn);
-    // const shoppingCartModal = screen.queryByTestId("shopping-cart-modal");
-    // expect(shoppingCartModal).toBeNull();
   });
 });
